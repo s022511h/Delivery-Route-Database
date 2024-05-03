@@ -1,0 +1,119 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delivery Route Display</title>
+        <style>
+                body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            .header {
+                background-color: #007bff;
+                padding: 20px;
+                text-align: center;
+                border: 3px solid #007bff;
+                border-radius: 20px;
+            }
+            .logo {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: inline-block;
+                vertical-align: middle;
+                color: white;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 24px;
+                margin: 0;
+            }
+            h1 {
+                font-family: 'Comic Sans MS', cursive;
+                color: #007bff;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                margin-top: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: #e3f2fd;
+                margin-top: 20px;
+            }
+            th, td {
+                padding: 8px;
+                border: 1px solid #007bff;
+                text-align: left;
+            }
+            th {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+            tr:nth-child(even) {
+                background-color: #bbdefb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="logo-text">The Furniture House</h1>
+        </div>
+
+        <h1>DRS</h1>
+        <div id="routes">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Delivery Order</th>
+                        <th>Start Point</th>
+                        <th>Destination Address</th>
+                        <th>Adjusted Distance</th>
+                        <th>Estimated Travel Time</th>
+                        <th>Estimated Arrival Time</th>
+                        <th>Unloading Time</th>
+                        <th>Item Weight (Est.)</th>
+                        <th>Scheduled Window</th>
+                        <th>Contact</th>
+                        <th>Items</th>
+                        <th>Special Instructions</th>
+                    </tr>
+                </thead>
+                <tbody id="route-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            fetch('/api/calculate-route')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('route-table-body');
+                data.forEach(route => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${route.order}</td>
+                        <td>${route.start}</td>
+                        <td>${route.destination}</td>
+                        <td>${route.distance}</td>
+                        <td>${route.travel_time}</td>
+                        <td>${route.estimated_arrival}</td>
+                        <td>${route.unloading_time}</td>
+                        <td>${route.item_weight} kg</td>
+                        <td>${route.scheduled_window}</td>
+                        <td>${route.contact}</td>
+                        <td>${route.items}</td>
+                        <td>${route.special_instructions}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        </script>
+        
+    </body>
+    </html>

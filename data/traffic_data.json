@@ -1,0 +1,55 @@
+{
+    "traffic_info": [
+      {
+        "start": "Warehouse",
+        "destination": "123 Stafford St, Staffordshire",
+        "congestion_level": 0.1
+      },
+      {
+        "start": "123 Stafford St, Staffordshire",
+        "destination": "456 Burton Rd, Staffordshire",
+        "congestion_level": 0.6
+      },
+      {
+        "start": "456 Burton Rd, Staffordshire",
+        "destination": "789 Lakeside Dr, Staffordshire",
+        "congestion_level": 0.2
+      },
+      {
+        "start": "789 Lakeside Dr, Staffordshire",
+        "destination": "Warehouse",
+        "congestion_level": 0.05
+      },
+      {
+        "start": "Warehouse",
+        "destination": "101 Hillview Rd, Staffordshire",
+        "congestion_level": 0.1
+      },
+      {
+        "start": "101 Hillview Rd, Staffordshire",
+        "destination": "202 Mountain View, Staffordshire",
+        "congestion_level": 0.25
+      },
+      {
+        "start": "202 Mountain View, Staffordshire",
+        "destination": "303 Riverside Dr, Staffordshire",
+        "congestion_level": 0.2
+      },
+      {
+        "start": "303 Riverside Dr, Staffordshire",
+        "destination": "404 Oak Lane, Staffordshire",
+        "congestion_level": 0.1
+      },
+      {
+        "start": "404 Oak Lane, Staffordshire",
+        "destination": "505 Maple St, Staffordshire",
+        "congestion_level": 0.15
+      },
+      {
+        "start": "505 Maple St, Staffordshire",
+        "destination": "Warehouse",
+        "congestion_level": 0.05
+      }
+    ]
+  }
+  
